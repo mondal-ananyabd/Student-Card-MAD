@@ -1,6 +1,8 @@
-import { StatusBar } from "expo-status-bar";
+import ProfileCard from "@/components/profile-card"; 
 
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StatusBar } from "expo-status-bar"; 
+
+import { ScrollView, StyleSheet } from "react-native"; 
 
  
 
@@ -8,46 +10,21 @@ export default function App() {
 
     return ( 
 
-
         <ScrollView contentContainerStyle={styles.screen}> 
 
             <StatusBar style="dark" /> 
 
  
 
-            {/* Card container */} 
+            {/* First card — your own data */} 
 
-            <View style={styles.card}> 
-
-                {/* Avatar placeholder */} 
-
-                <View style={styles.avatar}> 
-
-                    <Text style={styles.avatarText}>AM</Text> 
-
-                </View> 
+            <ProfileCard name="Asadul Haque" studentId="22-12345-1" department="Computer Science — AIUB" bio="Passionate about mobile development and building tools that make everyday life easier." /> 
 
  
 
-                {/* Name and role */} 
+            {/* Second card — a classmate's data (same component, different props!) */} 
 
-                <Text style={styles.name}>Ananya Mondal</Text> 
-
-                <Text style={styles.role}>Computer Science — AIUB</Text> 
-
- 
-
-                {/* Divider line */} 
-
-                <View style={styles.divider} /> 
-
- 
-
-                {/* Bio text */} 
-
-                <Text style={styles.bio}>Passionate about mobile development and building tools that make everyday life easier.</Text> 
-
-            </View> 
+            <ProfileCard name="Rakib Rahman" studentId="22-67890-2" department="Computer Science — AIUB" bio="Interested in AI and full-stack web development. Loves competitive programming." /> 
 
         </ScrollView> 
 
@@ -61,8 +38,6 @@ const styles = StyleSheet.create({
 
     screen: { 
 
-        flex: 1, 
-
         backgroundColor: "#F0F4F8", 
 
         alignItems: "center", 
@@ -70,108 +45,6 @@ const styles = StyleSheet.create({
         paddingTop: 60, 
 
         paddingBottom: 40, 
-
-    }, 
-
-    card: { 
-
-        backgroundColor: "#FFFFFF", 
-
-        borderRadius: 16, 
-
-        padding: 28, 
-
-        width: "88%", 
-
-        alignItems: "center", 
-
-        // Shadow for iOS 
-
-        shadowColor: "#000", 
-
-        shadowOffset: { width: 0, height: 2 }, 
-
-        shadowOpacity: 0.08, 
-
-        shadowRadius: 8, 
-
-        // Elevation for Android 
-
-        elevation: 4, 
-
-    }, 
-
-    avatar: { 
-
-        width: 88, 
-
-        height: 88, 
-
-        borderRadius: 44, 
-
-        backgroundColor: "#0D9488", 
-
-        alignItems: "center", 
-
-        justifyContent: "center", 
-
-        marginBottom: 16, 
-
-    }, 
-
-    avatarText: { 
-
-        color: "#FFFFFF", 
-
-        fontSize: 28, 
-
-        fontWeight: "bold", 
-
-    }, 
-
-    name: { 
-
-        fontSize: 22, 
-
-        fontWeight: "bold", 
-
-        color: "#0D1F4E", 
-
-        marginBottom: 4, 
-
-    }, 
-
-    role: { 
-
-        fontSize: 14, 
-
-        color: "#64748B", 
-
-        marginBottom: 16, 
-
-    }, 
-
-    divider: { 
-
-        width: "100%", 
-
-        height: 1, 
-
-        backgroundColor: "#E2E8F0", 
-
-        marginBottom: 16, 
-
-    }, 
-
-    bio: { 
-
-        fontSize: 14, 
-
-        color: "#64748B", 
-
-        textAlign: "center", 
-
-        lineHeight: 22, 
 
     }, 
 
