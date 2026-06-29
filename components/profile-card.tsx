@@ -12,6 +12,7 @@ interface ProfileCardProps {
   studentId: string;
   department: string;
   bio: string;
+  skills?: string[]; // Optional prop for skills
 }
 
 // The component receives props from the parent
@@ -20,6 +21,7 @@ export default function ProfileCard({
   studentId,
   department,
   bio,
+    skills,
 }: ProfileCardProps) {
   // Build initials from the name prop
   const initials = name
@@ -48,6 +50,26 @@ export default function ProfileCard({
       <View style={styles.divider} />
 
       <Text style={styles.bio}>{bio}</Text>
+
+      {/* ... all existing JSX ... */} 
+
+  
+
+      {/* NEW: Skills section — add this above the Follow button */} 
+
+      <View style={styles.skillsContainer}> 
+
+        {skills?.map((skill, index) => ( 
+
+          <View key={index} style={styles.skillBadge}> 
+
+            <Text style={styles.skillText}>{skill}</Text> 
+
+          </View> 
+
+        ))} 
+
+      </View> 
 
       {/* Follow Button */}
       <TouchableOpacity
@@ -160,4 +182,43 @@ const styles = StyleSheet.create({
   buttonTextFollowed: {
     color: "#FFFFFF",
   },
+  skillsContainer: { 
+
+  flexDirection: 'row',    // lay badges out horizontally 
+
+  flexWrap: 'wrap',        // wrap to next line when full 
+
+  justifyContent: 'center', 
+
+  marginTop: 12, 
+
+  gap: 8, 
+
+}, 
+
+skillBadge: { 
+
+  backgroundColor: '#EFF6FF', 
+
+  borderRadius: 20, 
+
+  paddingHorizontal: 12, 
+
+  paddingVertical: 5, 
+
+  borderWidth: 1, 
+
+  borderColor: '#BFDBFE', 
+
+}, 
+
+skillText: { 
+
+  fontSize: 12, 
+
+  color: '#1D4ED8', 
+
+  fontWeight: '500', 
+
+}, 
 });
